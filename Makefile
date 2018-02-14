@@ -9,7 +9,7 @@ TESTING_TARGETS = packet
 
 all: $(SUBDIRS)
 
-dpdk: yanff-base
+yanff-base: dpdk
 
 test: dpdk
 
