@@ -205,9 +205,16 @@ TEXT ·Rte_compiler_wmb(SB),NOSPLIT,$0-0
         SFENCE
 >>>>>>>-14e22e5
 
-TEXT ·Prefetcht0(SB),NOSPLIT,$0-8
-        MOVQ    addr+0(FP), AX
+   LFENCTEXT ·Rte_compiler_rmb(SB),NOSPLIT,$0-0
+        LFENCE
+        RET
+TEXT ·Rte_compiler_wmb(SB),NOSPLIT,$0-0
+        SFENCE
+        RET
+>>>>>>>-14e22e5
+0(FP), AX
         PREFETCHT0      (AX)
         RET
+<<<<<<< HEAD
 >>>>>>>+HEAD
 Initial commit
